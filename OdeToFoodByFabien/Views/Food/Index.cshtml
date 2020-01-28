@@ -1,0 +1,51 @@
+﻿@model IEnumerable<OdeToFoodByFabien.Models.Food>
+
+@{
+    ViewBag.Title = "Foods";
+}
+
+<h2>Foods</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+
+@* *@
+@* <table class="table"> *@
+@*     <tr> *@
+@*         <th> *@
+@*             @Html.DisplayNameFor(model => model.FoodId) *@
+@*         </th> *@
+@*         <th> *@
+@*             @Html.DisplayNameFor(model => model.FoodName) *@
+@*         </th> *@
+@*         <th> *@
+@*             @Html.DisplayNameFor(model => model.FoodDescription) *@
+@*         </th> *@
+@*          <th> *@
+@*             @Html.DisplayNameFor(model => model.Price) *@
+@*         </th> *@
+@*          *@
+@*          *@
+@*     </tr> *@
+
+    @foreach (var item in Model)
+    {
+        <div class="row">
+            <div class="col-lg-6">
+            <div class="card " style="margin: 20px;float: right; width: 100%">
+                <img class="card-img-top" src="/ima/delicious_food_04_hd_pictures_167550.jpg" alt="Card image cap">
+                <div class="card-body">
+                    @Html.DisplayFor(modelItem => item.FoodName)
+                </div>
+                <div>
+                    @Html.ActionLink("Update", "Update", new {id = item.FoodId}) |
+                    @Html.ActionLink("Details", "Details", new {id = item.FoodId}) |
+                    @Html.ActionLink("Delete", "Delete", new {id = item.FoodId})
+                </div>
+            </div>
+          </div>
+        </div>
+    }
+
